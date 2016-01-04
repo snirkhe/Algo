@@ -21,6 +21,7 @@ public class Fibonacci {
 	}
 
 	/**
+	 * Dynamic programming Bottom Up approach
 	 * Time complexity: O(n)
 	 * Aux Space: O(n)
 	 */
@@ -34,6 +35,7 @@ public class Fibonacci {
 	}
 
 	/**
+	 * Dynamic programming Top down approach
 	 * Time complexity: O(n)
 	 * Aux Space: O(n)
 	 */
