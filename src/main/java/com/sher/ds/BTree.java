@@ -1,4 +1,4 @@
-package com.shekhar.ds;
+package com.sher.ds;
 
 import java.util.LinkedList;
 import java.util.Queue;
