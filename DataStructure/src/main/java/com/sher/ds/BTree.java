@@ -10,9 +10,7 @@ public class BTree {
 
 	public BTree(Node root) {
 		this.root = root;
-
 	}
-
 
 	static class Node {
 		public int v;
