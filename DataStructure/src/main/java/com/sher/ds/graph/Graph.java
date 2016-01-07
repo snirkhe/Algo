@@ -53,6 +53,10 @@ public class Graph {
 	}
 	
 	public void addEdge(String from, String to) {
+		addEdge(from, to, 1);
+	}
+	
+	public void addEdge(String from, String to, int distance) {
 		if (!verticesMap.containsKey(from) || !verticesMap.containsKey(to)) {
 			System.out.println("Did not add " + from + " to " + to);
 			return;
@@ -60,13 +64,13 @@ public class Graph {
 		
 		Vertex x = verticesMap.get(from);
 		Vertex y = verticesMap.get(to);
-		Edge e = new Edge(1, from, to);
+		Edge e = new Edge(distance, from, to);
 		TreeSet<Edge> s = adjListMap.get(from);
 		if (s.add(e)) {
 			ne++;
 		}
 		if (directional == false) {
-			Edge e1 = new Edge(1, to, from);
+			Edge e1 = new Edge(distance, to, from);
 			s = adjListMap.get(to);
 			s.add(e1);
 		}
