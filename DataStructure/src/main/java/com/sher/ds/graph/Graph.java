@@ -4,6 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
+/*
+ * You should know, in decreasing order of importance:
+	BFS
+	DFS
+	Topological Sort & Shortest-path in a DAG
+	Dijkstra's algorithm
+	Bellman-Ford
+	A-star (A*)
+	Floyd-Warshall (debatable, but it's 5 lines of code, so no reason not to know it)
+ */
+
 public class Graph {
 
 	Map<String, Vertex> verticesMap = new HashMap<String, Vertex>();
