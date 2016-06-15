@@ -58,6 +58,7 @@ public class BTree {
 	}
 
 	void inOrder(Node r) {
+		//System.out.print("InOrder:");
 		if(r == null) return;
 		inOrder(r.left);
 		System.out.print(r.v + ",");
@@ -65,15 +66,16 @@ public class BTree {
 	}
 
 	public static void main(String arg[]) {
-		Node root = new Node(50);
+		Node root = new Node(10);
 		BTree tree=  new BTree(root);
-		root.add(17).add(76).add(9).add(23).add(54).add(14).add(19).add(72).add(12).add(67);
-		tree.preOrder(root);
+		//root.add(17).add(76).add(9).add(23).add(54).add(14).add(19).add(72).add(12).add(67);
+		root.add(12).add(15).add(25).add(30).add(36);
+		tree.inOrder(root);
 		System.out.println("");
-		tree.DFS(root);
+		tree.BFS(root);
 		System.out.println("");
-		System.out.println(tree.depth(root));
-		System.out.println(tree.depthNoR(root));
+		//System.out.println(tree.depth(root));
+		//System.out.println("depthNoR:" + tree.depthNoR(root));
 	}
 
 	//BBQ : Use queue for Breadth first search
@@ -104,50 +106,48 @@ public class BTree {
 			}
 		}
 	}
+	//Delete note
+	//Story : Best (BST) is to cut little right finger.  (e.g. for BST delete the smallest node from right)
 
 	int depth(Node root) {
 		if (root == null) return 0;
 		return Math.max(depth(root.left), depth(root.right)) + 1 ;
 	}
-	
-    //No recursion - Use BFS using queue to calculate the depth.
-    //After each level insert a blank node to mark end of the level. 
+
+	//No recursion - Use BFS using queue to calculate the depth.
+	//After each level insert a blank node to mark end of the level. 
 	//The depth will be number of maker nodes.
 	int depthNoR(Node root) {
-		Node dummy = new Node(-100);
-		
+		Node endOfLevelMarker = new Node(-100);
+
 		Queue<Node> s = new LinkedList<>();
 		
 		s.add(root);
-		s.add(dummy);
-		
+		s.add(endOfLevelMarker);
+
 		int depth = 0;
-		boolean blank = true; // Only insert blank node if the current level is not blank.
-		
+
+
 		while (!s.isEmpty()) {
 			Node k = s.poll();
-		
+
 			if (k != null) {
 				if (k.v == -100) {
 					depth++;
-					if (!blank) {
-						s.add(dummy);
-						blank = true;
-					 }
+					if (!s.isEmpty()) { // It was the last node. Without this check we will keep putting and popping marker forever.
+						s.add(endOfLevelMarker);
+					}
 				} else {
 					if (k.left != null) {
 						s.add(k.left);
-						blank = false;
 					}
 					if (k.right != null) {
 						s.add(k.right);
-						blank = false;
 					}
 				}
-				
+
 			}
 		}
 		return depth;
 	}
-	
 }

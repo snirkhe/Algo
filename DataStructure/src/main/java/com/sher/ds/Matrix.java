@@ -6,7 +6,7 @@ public class Matrix {
 		int [][] matrix = { { 1, 2, 3 }, {4, 5, 6}, {7 ,8 , 9}};
 		print(matrix);
 
-		//rotateBy90(matrix);
+		rotateBy90_2(matrix);
 	}
 
 	static void print(int [][] matrix) {
@@ -30,8 +30,8 @@ public class Matrix {
 	 * Story : Pahale Chutiya phir Ram - Raone = Royal challenge {[c] [R-r-1] = [r][c]}
 	 */
 	static void rotateBy90(int [][] matrix ) {
-
 		int R = matrix.length, C = matrix[0].length;
+		
 		int [][] matrixNew = new int[R][C];
 		for (int r = 0; r < R; r++) {
 			for (int c = 0; c < C; c++) {
@@ -43,7 +43,42 @@ public class Matrix {
 		}
 		print(matrixNew);
 	}
+	
+	// My own code
+	static void rotateBy90_2(int [][] matrix ) {
+		int [][]  m = matrix;
+		int len = matrix.length - 1;
+		for (int r = 0; r < matrix.length /2; r++) { // len/2 because second half will be modified automatically
+			for (int c = r; c < matrix.length - 1 - r; c++) { //- 1 because last column is already modified, so no need.
+				int t = m[r][c];
+				m[r][c] = m[len - c ][r];
+				m[len - c ][r] = m[len -r][len -c];
+				m[len -r][len -c] = m [c] [len -r];
+				m[c][len -r] = t;
+			}
+		}
+		print(matrix);
+		
+	}
+	/*
+	 * SpaceO(1), time O(N^2)
+	 */
+	public static void rotateByNinetyToLeft(int[][] m) {
 
+	    int e = m.length - 1;
+	    int c = e / 2;
+	    int b = e % 2;
+	    for (int r = c; r >= 0; r--) {
+	        for (int d = c - r; d < c + r + b; d++) {
+	            int t   = m[c - r][d];
+	            m[c - r][d] = m[d][e - c + r];
+	            m[d][e - c + r] = m[e - c + r][e - d];
+	            m[e - c + r][e - d] = m[e - d][c - r];
+	            m[e - d][c - r] = t;
+	        }
+	    }
+	}
+	
 	/*
 	// O(n^2) time and O(1) space algorithm ( without any workarounds and hanky-panky stuff! )
 
@@ -84,7 +119,7 @@ public class Matrix {
 			for (int c = r + 1; c < R; c++) {
 				//System.out.println("K=" + k++);
 				int t = matrix[c][r];
-				matrix[c][r] = matrix[r][c];
+				matrix[c][r] = matrix[r][c]; 
 				matrix[r][c] = t;
 			}
 		}
