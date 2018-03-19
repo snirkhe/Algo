@@ -14,8 +14,6 @@ public class TwoArrayWithSumCloseToZero {
 
 	void twoArrayWithSumCloseToZero() {
 		int a[] = {1,60,-10,70,-80,85};
-
-		
 		// Sort array
 		quickSort(a, 0, (a.length - 1));  //It is random 
 		//System.out.println(a);

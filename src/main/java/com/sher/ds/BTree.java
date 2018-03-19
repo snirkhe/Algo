@@ -1,13 +1,13 @@
 package com.sher.ds;
 
+
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class BTree {
-
 	Node root;
-
 	public BTree(Node root) {
 		this.root = root;
 	}
@@ -94,7 +94,7 @@ public class BTree {
 
 	//Depth first search using PreOrder. Use a stack for the implementation.
 	void DFS(Node root) {
-		Stack<Node> s = new Stack<>();
+		Stack<Node> s = new Stack<Node>();
 		s.add(root);
 
 		while(!s.isEmpty()) {
@@ -120,7 +120,7 @@ public class BTree {
 	int depthNoR(Node root) {
 		Node endOfLevelMarker = new Node(-100);
 
-		Queue<Node> s = new LinkedList<>();
+		Queue<Node> s = new LinkedList<Node>();
 		
 		s.add(root);
 		s.add(endOfLevelMarker);
