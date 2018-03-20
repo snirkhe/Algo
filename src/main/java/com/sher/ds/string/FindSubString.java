@@ -7,7 +7,7 @@ public class FindSubString {
 
 	// Return index of the match, -1 if not found
 	// We will use Robin Kaff.
-	// Time: O(n)
+	// Time: O(n+m) // n = length of text, m = substring length
 	// Space O(1)
 	static class RobinKaff {
 		public int findSubString(String text, String subString) {
