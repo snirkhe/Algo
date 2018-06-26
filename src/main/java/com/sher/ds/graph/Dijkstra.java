@@ -9,8 +9,9 @@ import java.util.Set;
 /**
  * http://www.vogella.com/tutorials/JavaAlgorithmsDijkstra/article.html
  * Graph from https://en.wikipedia.org/wiki/Dijkstra's_algorithm
- * Worst case : O(E + VLogV)
- * 
+ * Worst case : O(E + VLogV) if use MinHeap.
+ *
+ * The time complexicty depends on the implementrtation. It could be from O(E+V^2) to O(ELogV)
  * 1 to 5 is 20 , and right answer is 1,3,6,5
  * 
  */
@@ -66,7 +67,7 @@ public class Dijkstra {
 			Vertex m = getWithMinimumDistance(unsettled);
 			unsettled.remove(m);
 			settled.add(m);
-			evaluateNeighbour(m);
+			evaluateNeighbourAndSetDistance(m);
 		}
 		System.out.println("Distance from " + source + " to " + destination + " is " + distance.get(destination));
 		System.out.print("Path is = ");
@@ -74,12 +75,13 @@ public class Dijkstra {
 		System.out.println("\n");
 	}
 
-	private void evaluateNeighbour(Vertex m) {
+	private void evaluateNeighbourAndSetDistance(Vertex m) {
+		int mDistance = getDistance(m);
 		for (Edge e:G.getAdjListMap().get(m.name)) {
 			Vertex n = G.getVertex(e.destination);
 			if (settled.contains(n)) continue;
 			
-			if (getDistance(n) > getDistance(m) + e.getD()) {
+			if (getDistance(n) > mDistance + e.getD()) {
 				distance.put(n.name, getDistance(m) + e.getD());
 				unsettled.add(n);
 				//System.out.println("=>>>>" + n.name + ">>>" + m.name);
