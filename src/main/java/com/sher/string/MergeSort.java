@@ -1,4 +1,4 @@
-package com.sher.ds.string;
+package com.sher.string;
 
 public class MergeSort {
 	public static void main(String arg[]) {
@@ -13,7 +13,6 @@ public class MergeSort {
 
 	private void mergeSort(int a[], int start, int end) {
 		int mid =  start +  (end - start) / 2;
-		-
 		if (end == start) { //just one element
 			return;
 		}
@@ -51,8 +50,6 @@ public class MergeSort {
 			 a[k ++] = c[j++];
 		 }
 	}
-	
-	
-	
+
 
 }

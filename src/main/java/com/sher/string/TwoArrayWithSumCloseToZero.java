@@ -1,4 +1,4 @@
-package com.sher.ds.string;
+package com.sher.string;
 
 /**
 //Two elements whose sum is closest to zero

@@ -1,4 +1,4 @@
-package com.sher.ds.graph;
+package com.sher.graph;
 
 import java.util.PriorityQueue;
 

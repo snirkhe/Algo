@@ -1,6 +1,6 @@
-package com.sher.ds;
+package com.sher.ds.bits;
 
-public class Bits {
+public class AddBits {
 	public static void count(int n) {
 		int c = 0 ;
 		while (n !=0) {
@@ -33,6 +33,6 @@ public class Bits {
 	}
 
 	public static void main(String arg[]) {
-		Bits.count(16);
+		AddBits.count(16);
 	}
 }

@@ -1,4 +1,4 @@
-package com.sher.ds.string;
+package com.sher.string;
 
 public class MnemonicsForPhoneNumber {
     private String dict[] = {"ABC", "DEF", "GHI",

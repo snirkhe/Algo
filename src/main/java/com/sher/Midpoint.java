@@ -1,4 +1,4 @@
-package com.sher.ds;
+package com.sher;
 import java.util.List;
 
 public class Midpoint {

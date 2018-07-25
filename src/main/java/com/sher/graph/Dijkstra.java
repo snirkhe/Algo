@@ -1,4 +1,4 @@
-package com.sher.ds.graph;
+package com.sher.graph;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,10 +9,19 @@ import java.util.Set;
 /**
  * http://www.vogella.com/tutorials/JavaAlgorithmsDijkstra/article.html
  * Graph from https://en.wikipedia.org/wiki/Dijkstra's_algorithm
- * Worst case : O(E + VLogV) if use MinHeap.
  *
- * The time complexicty depends on the implementrtation. It could be from O(E+V^2) to O(ELogV)
+ * Worst case : O(E + VLogV) if use MinHeap. In the current implementation
+ * it is O(E+V^2) as we are using forloop in getWithMinimumDistance method.
+ *
+ *
  * 1 to 5 is 20 , and right answer is 1,3,6,5
+ *
+ * You can use Dijkstra's algorithm in both directed and undirected graphs,
+ * An undirected graph is basically the same as a directed graph with
+ * bidirectional connections (= two connections in opposite directions) between the connected nodes.
+ * It will also works  on graphs with cycles, as long as it is a positive weight.
+ * It does not work if the weights are negatives. Also if all weights are same then it is better to use
+ * BFS instead of Dijkstra.
  * 
  */
 public class Dijkstra {
@@ -69,7 +78,8 @@ public class Dijkstra {
 			settled.add(m);
 			evaluateNeighbourAndSetDistance(m);
 		}
-		System.out.println("Distance from " + source + " to " + destination + " is " + distance.get(destination));
+		System.out.println("Distance from " + source + " to "
+				+ destination + " is " + distance.get(destination));
 		System.out.print("Path is = ");
 		getPath(destination);
 		System.out.println("\n");

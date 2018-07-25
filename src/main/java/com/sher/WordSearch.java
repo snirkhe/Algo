@@ -1,4 +1,4 @@
-package com.sher.ds;
+package com.sher;
 /**
  * http://www.programcreek.com/2014/06/leetcode-word-search-java/
  * @author snirkhe

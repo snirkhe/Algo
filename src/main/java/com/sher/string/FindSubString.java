@@ -1,4 +1,4 @@
-package com.sher.ds.string;
+package com.sher.string;
 
 /**
  * Given a text find substring.
