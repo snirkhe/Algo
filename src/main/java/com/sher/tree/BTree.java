@@ -1,7 +1,5 @@
 package com.sher.tree;
 
-
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -12,48 +10,11 @@ public class BTree {
 		this.root = root;
 	}
 
-	static class Node {
-		public int v;
-		public Node left, right;
-		Node (int v) {
-			this.v = v;
-		}
 
-		public void addLeft(Node l) {
-			this.left = l;
-		}
-
-		public void addRight(Node r) {
-			this.right =  r;
-		}
-
-		public Node add(int v) {
-			Node n = new Node(v);
-			return add(n);
-		}
-
-		public Node add(Node c) {
-			if (c == null) return this;
-			if (v >= c.v) {
-				if (left == null) {
-					left = c;
-				} else {
-					left.add(c);
-				}
-			} else {
-				if (right == null) {
-					right = c;
-				} else {
-					right.add(c);
-				}
-			}
-			return this;
-		}
-	}
 
 	void preOrder(Node r) {
 		if(r == null) return;
-		System.out.print(r.v + ",");
+		System.out.print(r.data + ",");
 		preOrder(r.left); preOrder(r.right);
 	}
 
@@ -61,19 +22,24 @@ public class BTree {
 		//System.out.print("InOrder:");
 		if(r == null) return;
 		inOrder(r.left);
-		System.out.print(r.v + ",");
+		System.out.print(r.data + ",");
 		inOrder(r.right);
 	}
 
-	public static void main(String arg[]) {
+	public static Node buildTree() {
 		Node root = new Node(10);
-		BTree tree=  new BTree(root);
-		//root.add(17).add(76).add(9).add(23).add(54).add(14).add(19).add(72).add(12).add(67);
-		root.add(12).add(15).add(25).add(30).add(36);
-		tree.inOrder(root);
+		root.add(17).add(76).add(9).add(23).add(54).add(14).add(19).add(72).add(12).add(67);
+
 		System.out.println("");
+		System.out.println("");
+		return root;
+	}
+	public static void main(String arg[]) {
+		Node root = BTreePrinter.tree1();
+		BTree tree=  new BTree(root);
 		tree.BFS(root);
 		System.out.println("");
+		BTreePrinter.printNode(root);
 		//System.out.println(tree.depth(root));
 		//System.out.println("depthNoR:" + tree.depthNoR(root));
 	}
@@ -85,7 +51,7 @@ public class BTree {
 		while (!qe.isEmpty()) {
 			Node q = (Node) qe.poll();
 			if (q != null) {
-				System.out.print(q.v + ",");
+				System.out.print(q.data + ",");
 				qe.add(q.left);
 				qe.add(q.right);
 			}
@@ -100,7 +66,7 @@ public class BTree {
 		while(!s.isEmpty()) {
 			Node n = s.pop();
 			if (n != null) {
-				System.out.print(n.v + ",");
+				System.out.print(n.data + ",");
 				s.push(n.right);
 				s.push(n.left);
 			}
@@ -132,7 +98,7 @@ public class BTree {
 			Node k = s.poll();
 
 			if (k != null) {
-				if (k.v == -100) {
+				if (k.data == -100) {
 					depth++;
 					if (!s.isEmpty()) { // It was the last node. Without this check we will keep putting and popping marker forever.
 						s.add(endOfLevelMarker);

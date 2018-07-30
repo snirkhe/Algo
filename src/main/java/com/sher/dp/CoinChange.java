@@ -49,7 +49,7 @@ public class CoinChange {
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j <  s.length; j++) {
                 if (i >= s[j]) {
-                    //dp[i] = Math.min(1 + dp[i - s[j]], dp[i]);
+                    //dp[i] = Pow.min(1 + dp[i - s[j]], dp[i]);
                     int sol = dp[i - s[j]];
                     if (sol + 1 < dp[i]) {
                         dp[i] = sol + 1;

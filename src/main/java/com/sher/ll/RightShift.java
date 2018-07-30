@@ -1,7 +1,7 @@
-package com.sher.ds.ll;
+package com.sher.ll;
 
-//import static com.sher.ds.LinkList.Node;
-import static com.sher.ds.ll.LinkList.Node;
+//import static com.sher.math.LinkList.Node;
+import static com.sher.ll.LinkList.Node;
 
 public class RightShift {
 

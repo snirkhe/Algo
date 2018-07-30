@@ -1,4 +1,4 @@
-package com.sher.ds.ll;
+package com.sher.ll;
 
 
 public class LinkList {

@@ -36,7 +36,7 @@ public class MinimumNumberofJumps {
 	             break;
 					//System.out.println(jumps[i]);
 	                
-				//	jumps[i] = Math.min (jumps[i],  1 + jumps[j]);
+				//	jumps[i] = Pow.min (jumps[i],  1 + jumps[j]);
 				}
 				
 			}
