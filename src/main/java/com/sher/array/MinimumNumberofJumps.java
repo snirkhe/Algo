@@ -1,4 +1,4 @@
-package com.sher.ds.array;
+package com.sher.array;
 
 /**
  * Given an array of integers where each element represents the max number of 
@@ -15,7 +15,8 @@ public class MinimumNumberofJumps {
 
 	public static void main(String arg[]) {
 		int arr[] = {1, 3, 5, 8, 9, 2, 6, 7, 8, 9};
-		System.out.println("\nMinimum number of jumps to reach end is "+ minJumps(arr));
+		System.out.println("\n Minimum number of jumps to reach end is 1:"+ minJumps(arr));
+		System.out.println("\n Minimum number of jumps to reach end is 2:"+ minJumps2(arr));
 	}
 
 	private static int minJumps(int[] arr) {
@@ -50,5 +51,25 @@ public class MinimumNumberofJumps {
 		
 		}
 		return jumps[arr.length - 1];
+	}
+
+	private static int minJumps2(int[] a) {
+		int maxReached  = 0;
+		int dp[] = new int [a.length];
+		dp[0] = 0;
+		for (int i = 1; i < a.length; i++) {
+			dp[i] = Integer.MAX_VALUE;
+		}
+
+		for (int i =0 ; i < a.length; i++) {
+			maxReached = Math.max(maxReached, a[i] + i);
+			if(dp[i] == Integer.MAX_VALUE && maxReached > i)
+				dp[i] = 1;
+			dp[a[i]] = Math.min(dp[a[i]], dp[i] + 1);
+			if (maxReached >= a.length)
+				return dp[a[i]];
+		}
+
+		return 0;
 	}
 }

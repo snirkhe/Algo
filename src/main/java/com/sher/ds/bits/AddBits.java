@@ -32,7 +32,18 @@ public class AddBits {
 		return x;
 	}
 
+	static void multiply(int n,  int k) {
+		int r = 0;
+		while (n != 0) {
+			if ((n & 1) == 1) {
+				r = Add(r , k);
+			}
+			n = n >>> 1;
+			k = k << 1;
+		}
+		System.out.println(r);
+	}
 	public static void main(String arg[]) {
-		AddBits.count(16);
+		AddBits.multiply(11, 13);
 	}
 }
