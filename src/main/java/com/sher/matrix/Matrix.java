@@ -1,4 +1,4 @@
-package com.sher;
+package com.sher.matrix;
 
 public class Matrix {
 	
@@ -9,7 +9,8 @@ public class Matrix {
 		spiral(matrix);
 	}
 
-	static void print(int [][] matrix) {
+	public static void print(int [][] matrix) {
+		System.out.println("=============");
 		for (int k[]:matrix) {
 			for (int j:k) {
 				System.out.print(j + ",");
@@ -133,7 +134,7 @@ public class Matrix {
 				i--;
 			}
 			b --;
-			if (t > b) return;;
+			if (t > b) return;
 			j = b;
 			while ( j >= t) {
 				System.out.print(matrix[j][l] + ",");

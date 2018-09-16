@@ -19,7 +19,12 @@ public class SearchSmallest {
     }
 
     public static void main(String arg[]) {
-        int arr[] =  {378, 478, 550, 631, 103, 203, 220, 234, 279, 368};
-        System.out.println(searchSmallest(arr));
+        //int arr[] =  {378, 478, 550, 631, 103, 203, 220, 234, 279, 368};
+        int arr[] = { 10, 5, 2, 7, 1, 9 };
+        int k = 15; // Ans is 4
+
+
     }
+
+
 }

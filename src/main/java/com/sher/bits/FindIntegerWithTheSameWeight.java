@@ -1,4 +1,4 @@
-package com.sher.ds.bits;
+package com.sher.bits;
 
 
 /**
